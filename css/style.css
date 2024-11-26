@@ -1,15 +1,49 @@
 /*! Додайте стилізацію ваших єлементів тут */
 
 body {
-    background-color: #fffbda;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(93, 0, 0, 0.8));
 }
 
 .title-main {
     text-align: center;
     line-height: 4em;
-    color: darkred;
+    color: rgb(90, 5, 5);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
 }
 
 .list {
-    margin-left: 4em;;
+    margin-left: 4em;
+}
+.list-link{
+    font-family: 'Playfair Display', serif;
+    color: gray;
+    font-weight:bolder;
+}
+.list-item:not(:last-of-type){
+    margin-bottom: 70px;
+}
+.list-item{
+    position: relative;
+}
+.list-item::after{
+    content: "";
+    width: 410px;
+    height: 1px;
+    background-color: gray;
+    position: absolute;
+    top: 200%;
+    left: 0%;
+}
+.title-lesson{
+    color: rgb(103, 46, 5);
+    font-family: 'Playfair Display', serif;
+    font-weight: lighter;
+}
+.lesson-link{
+    color: grey;
+    font-weight: bolder;
+    text-decoration: none;
+    font-style: italic;
 }
