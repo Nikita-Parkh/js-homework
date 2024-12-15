@@ -66,6 +66,47 @@ if (!isNaN(FloatNum)){
 else {
     alert("Відміна")
 }
+// Створити змінну для зберігання рядка, який містить числа з плаваючою комою. Використати метод parseFloat() для перетворення рядка у десяткове число та вивести результат в консоль.
+let FloatNumber = prompt("Введіть число з плаваючою комою: ");
+if (FloatNumber === null || FloatNumber.trim().length === 0){
+    alert("Відміна")
+}
+else {
+    FloatNumber = parseFloat(FloatNumber);
+    alert(`Ваше десяткове число буде ${FloatNumber}`);
+    console.log(`Ваше десяткове число буде ${FloatNumber}`);
+}
+// Створити змінну для зберігання рядка, який містить ціле число. Використати метод parseInt() для перетворення рядка у ціле число та вивести результат в консоль.
+let Num = prompt("Введіть ціле число: ");
+if (Num === null || Num.trim().length === 0 || isNaN(Number(Num))){
+    alert("Відміна")
+}
+else {
+    Num = parseInt(Num);
+    alert(`Ваше ціле число ${Num}`);
+    console.log(`Ваше ціле число ${Num}`);
+}
+// Створити змінну для зберігання числа. Використати метод Math.sqrt() для обчислення квадратного кореня числа та вивести результат в консоль.
+let NewNum = 31;
+NewNum = Math.sqrt(NewNum);
+alert(`Квадратний корінь з 31 буде ${NewNum}`);
+console.log(NewNum);
+// Створити змінні для зберігання цілочисельного значення та рядка з числом у вигляді рядка. Використати метод parseInt() для перетворення рядка у ціле число та вивести результат в консоль.
+//  Потім використати метод toString() для перетворення цілочисельного значення у рядок та вивести результат в консоль.
+let OnlyNum = prompt("Введіть цілочисельне значення");
+let OnlyString = prompt("Введіть ще одне число");
+if (isNaN(Number(OnlyNum)) === false && isNaN(Number(OnlyString)) === false && OnlyNum !== null && OnlyString !== null){
+    OnlyNum = OnlyNum.toString();
+    alert (`Ваше цілочисельне значення у рядковому типі : ${OnlyNum}`);
+    console.log(`Ваше цілочисельне значення у рядковому типі : ${OnlyNum}`);
+    OnlyString = parseInt(OnlyString);
+    alert(`Ваше число у числовому типі : ${OnlyString}`);
+    console.log(`Ваше число у числовому типі : ${OnlyString}`);
+}
+else {
+    alert("Відміна");
+}
+
 
 
 
