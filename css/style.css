@@ -1,7 +1,7 @@
 /*! Додайте стилізацію ваших єлементів тут */
 
 body {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(93, 0, 0, 0.8));
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(234, 137, 137, 0.8));
 }
 
 .title-main {
@@ -15,6 +15,9 @@ body {
 
 .list {
     margin-left: 4em;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
 }
 .list-link{
     font-family: 'Playfair Display', serif;
