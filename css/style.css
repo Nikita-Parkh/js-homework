@@ -24,7 +24,7 @@ body {
     color: gray;
     font-weight:bolder;
 }
-.list-item:not(:last-of-type){
+.list-item{
     margin-bottom: 70px;
 }
 .list-item{
