@@ -72,14 +72,20 @@ const employeePerformance = {
 };
 //! Код виконаного завдання
 
-const {count , employeePerformanceLists} = employeePerformance
-console.log(count);
-employeePerformanceLists.forEach(list => {
-    for (const key in list) {
-        const value = list[key];
-        console.log(`${key}: ${value}`);
-    }
-});
+const {count , employeePerformanceLists: [{ann , david: davidFirst , helen , lorence } , {poly , mango , ajax}, {lux , david: davidSecond , kiwi , chelsy}]} = employeePerformance
+console.log(count);      
+console.log(ann);        
+console.log(davidFirst); 
+console.log(helen);      
+console.log(lorence);    
+console.log(poly);       
+console.log(mango);      
+console.log(ajax);       
+console.log(lux);        
+console.log(davidSecond);
+console.log(kiwi);       
+console.log(chelsy);     
+
 console.log("--------------------------------------------------");
 
 
@@ -108,13 +114,14 @@ const employeeSalaries = {
     ],
 };
 //! Код виконаного завдання
-const {count: NewCount , employeeSalaryLists} = employeeSalaries;
-console.log(NewCount);
-employeePerformanceLists.forEach(list =>{
-    for (const key in list) {
-        console.log(`${key} : ${list[key]}`);
-    }
-})
+const {count: NewCount , employeeSalaryLists: [{mango:salarMango , poly:salarPoly , alfred} , {kiwi:salarKiwi , lux:salarLux , chelsy:salarChelsy}]} = employeeSalaries;
+console.log(NewCount);   
+console.log(salarMango); 
+console.log(salarPoly);  
+console.log(alfred);     
+console.log(salarKiwi);  
+console.log(salarLux);   
+console.log(salarChelsy);
 console.log("--------------------------------------------------");
 
 //todo [5]
@@ -149,12 +156,11 @@ const products = [
     },
 ];
 //! Код виконаного завдання
-
-products.forEach(list =>{
-    const {name , price , quantity} = list;
-    console.log(`${name} , ${price} , ${quantity}`);
-})
-
+const [{name:firstName , price , quantity} , {name:secondName , price:secondPrice , quantity:secondQuantity} , {name:thirdName , price:thirdPrice , quantity:thirdQuantity} , {name:fourthName , price:fourthPrice , quantity:fourthQuantity}] = products;
+console.log(firstName, price, quantity); 
+console.log(secondName, secondPrice, secondQuantity); 
+console.log(thirdName, thirdPrice, thirdQuantity); 
+console.log(fourthName, fourthPrice, fourthQuantity); 
 console.log("--------------------------------------------------");
 
 
@@ -179,7 +185,7 @@ const account = {
     balance: 0,
     transactions: [],
     createTransaction(amount, type) { 
-        const id = Math.floor(Math.random() * 1000000000);
+        const id = account.transactions.length + 1;
         return {
             id ,
             amount ,
@@ -189,18 +195,20 @@ const account = {
     deposit(amount) { 
         const ToTransactionDep = this.createTransaction(amount , Transaction.DEPOSIT);
         this.transactions.push(ToTransactionDep);
-        return this.balance += amount;
+        this.balance += amount;
+        return this.getBalance();
     },
 
     withdraw(amount) {
-        const ToTransactionWith = this.createTransaction(amount , Transaction.WITHDRAW);
-        this.transactions.push(ToTransactionWith);
         if (amount > this.balance){
             alert("Недостатньо коштів");
             console.log("Недостатньо коштів");
             return
         }
-        return this.balance -= amount;
+        const ToTransactionWith = this.createTransaction(amount , Transaction.WITHDRAW);
+        this.transactions.push(ToTransactionWith);
+        this.balance -= amount;
+        return this.getBalance();
      },
     getBalance() { 
         console.log(`Ваш поточний баланс : ${this.balance}`);
@@ -208,13 +216,12 @@ const account = {
     },
 
     getTransactionDetails(id) { 
-        let idResult = undefined;
-        this.transactions.forEach(list => {
-            if (id === list.id){
-                idResult = list;
+        for (const list of this.transactions) {
+            if (id === list.id) {
+                return list;
             }
-        })
-        return idResult;
+        }
+        return null;  
     },
 
     getTransactionTotal(type) {
@@ -231,6 +238,5 @@ account.deposit(10000);
 account.deposit(15000);
 account.withdraw(1000);
 account.withdraw(5000);
-console.log(account.getBalance());
 console.log(account.transactions);
 console.log("--------------------------------------------------");
