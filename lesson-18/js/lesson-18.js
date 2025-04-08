@@ -149,3 +149,60 @@ images.forEach(li => {
 });
 gallery.insertAdjacentHTML('beforeend' , stringOfLi)
 console.log("----------------------------------------------------------------");
+
+
+//todo [4]
+console.log(
+    "%c [4] ",
+    "color: yellow; background-color: #2274A5",
+);
+//? ✴️ Лічильник складається:
+//? зі спана і кнопок, 
+//? які повинні збільшувати і зменшувати 
+//? значення лічильника на 1:
+/*
+<div id="counter">
+    <button type="button" data-action="decrement">-1</button>
+    <span id="value">0</span>
+    <button type="button" data-action="increment">+1</button>
+</div>
+*/
+//? 🔸 Створи змінну counterValue в якій буде 
+//?    зберігається поточне значення лічильника.
+//? 🔸 Створи функції increment і decrement 
+//?    для збільшення і зменшення значення лічильника
+//? 🔸 Додай слухачі кліків на кнопки, 
+//?    виклики функцій та оновлення інтерфейсу
+//! Код виконаного завдання
+const divCounter = document.getElementById('counter')
+Object.assign(divCounter.style,{
+    position:'absolute',
+    left:'50%',
+    top:'50%',
+    border:'5px solid black',
+    borderRadius:'25%',
+    width:'100px',
+    height:'50px',
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center'
+})
+let counterValue = Number(document.getElementById('value').textContent)
+const increment = () => {
+    counterValue += 1
+    document.getElementById('value').textContent = counterValue
+}
+const decrement = () => {
+    counterValue -= 1
+    document.getElementById('value').textContent = counterValue
+}
+let buttons = document.querySelectorAll('button')
+let incButton = buttons[1]
+let decButton = buttons[0]
+incButton.addEventListener('click' , function() {
+    increment()
+})
+decButton.addEventListener('click' , function(){
+    decrement()
+})
+console.log("----------------------------------------------------------------");
