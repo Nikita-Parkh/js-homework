@@ -13,15 +13,15 @@ for (let i = 0; i < arrOfImages.length; i++) {
     arrOfImages[i].style.order = i
 }
 let currentOrder = 0
-nextButton.addEventListener('click' , function(){
+const goToNext = () => {
     arrOfImages[currentOrder].style.order = currentOrder
     currentOrder = (currentOrder + 1) % arrOfImages.length
-    if (currentOrder === 1){
-        arrOfImages[0].style.order = 1
-    }
-    arrOfImages[currentOrder].style.order = 0
-})
-prevButton.addEventListener('click' , function(){
+if (currentOrder === 1){
+    arrOfImages[0].style.order = 1
+}
+arrOfImages[currentOrder].style.order = 0
+}
+const goToPrev = () => {
     if (currentOrder === 0){
         arrOfImages[arrOfImages.length - 1].style.order = 0
         arrOfImages[0].style.order = 1
@@ -31,6 +31,24 @@ prevButton.addEventListener('click' , function(){
         arrOfImages[currentOrder + 1].style.order = currentOrder + 1;
     }
     arrOfImages[currentOrder].style.order = 0
+}
+nextButton.addEventListener('click' , goToNext)
+prevButton.addEventListener('click' , goToPrev)
+document.addEventListener('keydown' , function(event){
+    if(event.key === 'ArrowLeft'){
+        goToNext()
+        nextButton.classList.add('nextActive')
+        setTimeout(() => {
+            nextButton.classList.remove('nextActive')
+        }, 250)  
+    }
+    else if(event.key === 'ArrowRight'){
+        goToPrev()
+        prevButton.classList.add('prevActive')
+        setTimeout(() => {
+            prevButton.classList.remove('prevActive')
+        }, 250)     
+    }
 })
 
 
