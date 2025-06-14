@@ -1,0 +1,12 @@
+.linear-slader{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.linear-slader-ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 200px;
+}
